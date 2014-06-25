@@ -1,10 +1,4 @@
-var arDrone = require('ar-drone');		// library aanroepen
-var client  = arDrone.createClient();	// drone client maken
+var arDrone = require('ar-drone');
+var client  = arDrone.createClient();
 
-client.takeoff();						// opstijgen
- 
-client 
-  .after(7000, function() {				// wacht 3 seconden
-    this.land();						// zet robot op de grond
-  });
-
+require('ar-drone-png-stream')(client, { port: 8080 });
